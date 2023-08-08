@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.gif" | sort -f -k1,1 -k2n | awk -F/ '{gsub(/\..*/, "", $NF); print $NF}'
+find . -type f -name "*.gif" | rev | cut -d "/" -f 1 | cut -d '.' 2- | rev | LC_ALL=C sort -f
